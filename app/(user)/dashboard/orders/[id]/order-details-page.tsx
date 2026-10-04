@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import * as paymentApi from '@/lib/payment/payment.api';
 import { ApiError } from '@/lib/auth/authFetch';
 import '@/styles/components/payment-result.css';
+import { formatDateFa } from '@/utils/helpers/formatData';
 
 function formatPrice(n: number): string {
   return n.toLocaleString('fa-IR');
@@ -57,15 +58,18 @@ export default function OrderDetailsPage() {
             <span className="pr-hero__order-number">{order.id}</span>
             <span className="pr-hero__timestamp">
               <i className="bi bi-clock" />
-              {new Date(order.orderAt).toLocaleString('fa-IR')}
+            {formatDateFa(order.orderAt)}
             </span>
           </div>
           <p className="pr-hero__subtitle" style={{ margin: 0 }}>
             وضعیت سفارش: <strong>{STATUS_LABEL_FA[order.status] ?? order.status}</strong>
             {' · '}
             روش پرداخت: {order.paymentMethod === 'cod' ? 'پرداخت در محل' : 'پرداخت اینترنتی'}
-            {order.paidAt && ` · پرداخت شده در ${new Date(order.paidAt).toLocaleString('fa-IR')}`}
-          </p>
+            {order.paidAt && (
+              <span>
+                · پرداخت شده در {formatDateFa(order.paidAt)}
+              </span>
+            )}   </p>
         </div>
 
         <div className="pr-body" style={{ gridTemplateColumns: '1fr' }}>

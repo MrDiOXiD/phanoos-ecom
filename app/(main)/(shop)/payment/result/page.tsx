@@ -6,6 +6,7 @@ import Link from 'next/link';
 import '@/styles/components/payment-result.css';
 import * as paymentApi from '@/lib/payment/payment.api';
 import { ApiError } from '@/lib/auth/authFetch';
+import { formatDateFa } from '@/utils/helpers/formatData';
 
 function formatPrice(n: number): string {
   return n.toLocaleString('fa-IR');
@@ -106,8 +107,7 @@ export default function PaymentResultPage() {
             <span className="pr-hero__order-number">{order.id}</span>
             <span className="pr-hero__timestamp">
               <i className="bi bi-clock" />
-              زمان ثبت سفارش: {new Date(order.orderAt).toLocaleString('fa-IR')}
-            </span>
+              زمان ثبت سفارش: {formatDateFa(order.orderAt)} </span>
           </div>
 
           <div className="pr-hero__actions">
