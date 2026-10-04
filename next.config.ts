@@ -1,16 +1,22 @@
 import type { NextConfig } from "next";
+
+const isDev = process.env.NODE_ENV === "development";
+
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:3020/:path*', // Proxy to Backend
+        source: "/api/:path*",
+        destination: isDev
+          ? "http://localhost:3020/:path*"
+          : "https://api.chatratech.ir/:path*",
       },
     ];
   },
-  /* config options here */
-  cacheComponents: true,
+
+  cacheComponents: false,
   reactStrictMode: false,
+
   images: {
     remotePatterns: [
       {
@@ -19,9 +25,8 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
-        protocol: "http",
-        hostname: "localhost", // 👈 Allows local testing if your NestJS serves static files
-        port: "3020",
+        protocol: "https",
+        hostname: "api.chatratech.ir",
         pathname: "/**",
       },
     ],
