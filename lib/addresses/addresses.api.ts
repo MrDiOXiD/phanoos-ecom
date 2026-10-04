@@ -4,10 +4,11 @@ export type AddressIconType = 'home' | 'office' | 'warehouse';
 
 // Matches UserAddressEntity's actual shape — not the mock Address type.
 export interface UserAddress {
-  id: number;
+  id: number; 
   tag: string;
   name: string;
   phone: string;
+    province: string;  
   city: string;
   addressLine: string;
   postalCode: string;

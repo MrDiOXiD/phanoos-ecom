@@ -3,9 +3,9 @@ import AddressCard from './AddressCard';
 
 interface DeliveryAddressSectionProps {
   addresses: CheckoutAddress[];
-  selectedId: string;
-  onSelect: (id: string) => void;
-  onEdit: (id: string) => void;
+  selectedId: number | null;
+  onSelect: (id: number) => void;
+  onEdit: (id: number) => void;
   onAddNew: () => void;
 }
 

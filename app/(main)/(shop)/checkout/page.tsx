@@ -73,7 +73,7 @@ export default function CheckoutPage() {
 
     try {
       const { order } = await createOrder({
-        addressId: selectedAddress.id,
+  addressId: Number(selectedAddress.id),
         orderProducts: cartItems.map((i) => ({ productId: i.id, order_quantity: i.quantity })),
         deliveryMethodId,
         requestedDeliveryDate: deliveryDate,
@@ -110,7 +110,7 @@ export default function CheckoutPage() {
             ) : (
               <DeliveryAddressSection
                 addresses={addresses}
-                selectedId={selectedAddress?.id ?? ''}
+                selectedId={selectedAddress?.id ?? null}
                 onSelect={() => {}}
                 onEdit={() => router.push('/dashboard/addresses')}
                 onAddNew={() => router.push('/dashboard/addresses')}

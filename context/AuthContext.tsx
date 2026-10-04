@@ -129,6 +129,10 @@ const registerAndLogin = useCallback(
     refetchUser,
     isLoginPending: loginMutation.isPending,
     isRegisterPending: registerMutation.isPending,
+    loginWithGoogle: function (idToken: string): Promise<AuthUser> {
+      throw new Error('Function not implemented.');
+    },
+    isGoogleLoginPending: false
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -225,12 +225,11 @@ const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
           </p>
         </div>
         <div className="lgn-google-wrap">
-{mode === 'login' && (
-  <div className="lgn-google-wrap">
-    <GoogleLogin onSuccess={handleGoogleSuccess} onError={()=>setGoogleErr("true")} text="continue_with" />
-    {googleErr && <span className="lgn-error">{googleErr}</span>}
-  </div>
-)}
+<GoogleLogin
+  onSuccess={handleGoogleSuccess}
+  onError={() => setGoogleErr('ورود با گوگل ناموفق بود. دوباره تلاش کنید')}
+  text="continue_with"
+/>
   {googleErr && <span className="lgn-error">{googleErr}</span>}
 </div>
 
@@ -347,7 +346,7 @@ const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
   onSuccess={handleGoogleSuccess}
   onError={() => setGoogleErr('ورود با گوگل ناموفق بود. دوباره تلاش کنید')}
   text="continue_with"
-  width="100%"
+  width="100px"
 />
           <div className="lgn-divider">یا</div>
           <p className="lgn-switch">
