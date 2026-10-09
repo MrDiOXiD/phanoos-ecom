@@ -19,6 +19,8 @@ export default function Providers({ children }: { children: ReactNode }) {
         },
       }),
   );
+  console.log(GOOGLE_CLIENT_ID);
+  
 
   return (
     <QueryClientProvider client={queryClient}>

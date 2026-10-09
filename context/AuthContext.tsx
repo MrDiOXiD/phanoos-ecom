@@ -118,22 +118,20 @@ const registerAndLogin = useCallback(
     return result.data ?? null;
   }, [hasSession, refetch]);
 
-  const value: AuthContextValue = {
-    user: user ?? null,
-    isBootstrapping: !hasBootstrapped,
-    isAuthenticated: Boolean(user),
-    login: loginMutation.mutateAsync,
-    register: registerMutation.mutateAsync,
-    registerAndLogin,
-    logout: logoutMutation.mutateAsync,
-    refetchUser,
-    isLoginPending: loginMutation.isPending,
-    isRegisterPending: registerMutation.isPending,
-    loginWithGoogle: function (idToken: string): Promise<AuthUser> {
-      throw new Error('Function not implemented.');
-    },
-    isGoogleLoginPending: false
-  };
+const value: AuthContextValue = {
+  user: user ?? null,
+  isBootstrapping: !hasBootstrapped,
+  isAuthenticated: Boolean(user),
+  login: loginMutation.mutateAsync,
+  register: registerMutation.mutateAsync,
+  registerAndLogin,
+  logout: logoutMutation.mutateAsync,
+  refetchUser,
+  isLoginPending: loginMutation.isPending,
+  isRegisterPending: registerMutation.isPending,
+  loginWithGoogle: googleLoginMutation.mutateAsync,
+  isGoogleLoginPending: googleLoginMutation.isPending,
+};
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

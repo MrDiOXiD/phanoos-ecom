@@ -10,6 +10,9 @@ import { GoogleLogin, type CredentialResponse } from '@react-oauth/google';
 type Mode = 'login' | 'register';
 
 export default function AuthPage({ defaultMode = 'login' }: { defaultMode?: Mode }) {
+
+
+
   const router = useRouter();
   const { login, registerAndLogin, loginWithGoogle, isLoginPending, isRegisterPending } = useAuth();
 
@@ -47,17 +50,15 @@ export default function AuthPage({ defaultMode = 'login' }: { defaultMode?: Mode
   const [googleErr, setGoogleErr] = useState('');
 
 
-const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
-  setGoogleErr('');
-  if (!credentialResponse.credential) {
-    setGoogleErr('ورود با گوگل ناموفق بود. دوباره تلاش کنید');
-    return;
-  }
+const handleGoogleSuccess = async (cr: CredentialResponse) => {
+  console.log('google success, has credential:', !!cr.credential);
   try {
-    await loginWithGoogle(credentialResponse.credential);
+    await loginWithGoogle(cr.credential!);
+    console.log('loginWithGoogle OK');
     router.push('/');
-  } catch {
-    setGoogleErr('ورود با گوگل ناموفق بود. دوباره تلاش کنید');
+  } catch (e) {
+    console.error('loginWithGoogle failed', e);
+    setGoogleErr('...');
   }
 };
 
