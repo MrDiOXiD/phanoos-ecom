@@ -129,6 +129,8 @@ const registerAndLogin = useCallback(
     refetchUser,
     isLoginPending: loginMutation.isPending,
     isRegisterPending: registerMutation.isPending,
+    loginWithGoogle: googleLoginMutation.mutateAsync,
+    isGoogleLoginPending: googleLoginMutation.isPending,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

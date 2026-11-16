@@ -110,7 +110,7 @@ export default function CheckoutPage() {
             ) : (
               <DeliveryAddressSection
                 addresses={addresses}
-                selectedId={selectedAddress?.id ?? ''}
+                selectedId={selectedAddress?.id ?? null}
                 onSelect={() => {}}
                 onEdit={() => router.push('/dashboard/addresses')}
                 onAddNew={() => router.push('/dashboard/addresses')}
@@ -147,3 +147,4 @@ export default function CheckoutPage() {
     </div>
   );
 }
+

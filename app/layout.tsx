@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Vazirmatn } from 'next/font/google';  // ← swap <link> for this
 import '@/styles/globals.css';
 import Goftino from '@/components/goftino/Goftino';
@@ -15,13 +15,28 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  title: 'الکتریکی آنلاین',
-  description: 'فروشگاه آنلاین لوازم برقی',
+  metadataBase: new URL('https://fanoselectric.ir'),
+  title: {
+    default: 'الکتریکی فانوس | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    template: '%s | الکتریکی فانوس',
+  },
+  description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه الکتریکی فانوس.',
+  applicationName: 'الکتریکی فانوس',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'fa_IR',
+    siteName: 'الکتریکی فانوس',
+    title: 'الکتریکی فانوس | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه الکتریکی فانوس.',
+    url: 'https://fanoselectric.ir',
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fa" dir="rtl" className={vazirmatn.variable}>
+    <html lang="fa-IR" dir="rtl" className={vazirmatn.variable}>
       <body
         className="bg-gray-100 min-h-screen"
         style={{ fontFamily: 'var(--font-vazirmatn), sans-serif', margin: 0 }}

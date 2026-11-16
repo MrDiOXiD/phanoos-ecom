@@ -3,6 +3,8 @@ export interface Category {
   id: number;
   title: string;
   description?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
   imageUrl?: string | null;
   createdAt?: string;
   updatedAt?: string;
@@ -21,6 +23,8 @@ export interface ApiProduct {
   id: number;
   title: string;
   description: string;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
   price: string;             // e.g., "130000.00"
   stock: number;
   discount?: string | null;   // e.g., "15.38"
@@ -32,11 +36,9 @@ export interface ApiProduct {
   category: Category;
   createdAt: string;
   updatedAt: string;
-  createdBy?: ProductUser;
-  userId: number;
   isActive: boolean;
   imagePublicId?: string | null;
   productImage: string;
-  gallery: string[];          // e.g., []
+  gallery: Array<string | { secure_url: string; public_id?: string }>;
   attributes?: Record<string, string>; // e.g., { "نور": "بسیار زیاد", "کیفیت": "عالی" }
 }

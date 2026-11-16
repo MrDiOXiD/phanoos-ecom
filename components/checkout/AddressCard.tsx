@@ -3,8 +3,8 @@ import { CheckoutAddress } from "@/interfaces/checkout/types";
 interface AddressCardProps {
   address: CheckoutAddress;
   selected: boolean;
-  onSelect: (id: string) => void;
-  onEdit: (id: string) => void;
+  onSelect: (id: number) => void;
+  onEdit: (id: number) => void;
 }
 
 export default function AddressCard({ address, selected, onSelect, onEdit }: AddressCardProps) {

@@ -1,5 +1,5 @@
 export interface CheckoutAddress {
-  id: string;
+  id: number;
   tag: string;
   name: string;
   phone: string;
