@@ -1,4 +1,4 @@
-import { authFetch } from '../auth/authFetch';
+﻿import { authFetch } from '../auth/authFetch';
 
 export type AddressIconType = 'home' | 'office' | 'warehouse';
 
@@ -8,6 +8,7 @@ export interface UserAddress {
   tag: string;
   name: string;
   phone: string;
+  province: string;
   city: string;
   addressLine: string;
   postalCode: string;
@@ -19,6 +20,7 @@ export interface CreateAddressPayload {
   tag: string;
   name: string;
   phone: string;
+  province: string;
   city: string;
   addressLine: string;
   postalCode: string;

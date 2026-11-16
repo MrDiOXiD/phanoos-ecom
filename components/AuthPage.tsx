@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
@@ -141,7 +141,6 @@ const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
       setRFormErr(describeAuthError(err, 'register'));
     }
   };
-  console.log('Google client ID:', process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID);
 
   return (
     <div className={`auth-page${isReg ? ' is-register' : ''}`}>
@@ -360,3 +359,5 @@ const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
     </div>
   );
 }
+
+

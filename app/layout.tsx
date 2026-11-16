@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Vazirmatn } from 'next/font/google';  // ← swap <link> for this
 import '@/styles/globals.css';
 import Goftino from '@/components/goftino/Goftino';
@@ -17,18 +17,18 @@ const vazirmatn = Vazirmatn({
 export const metadata: Metadata = {
   metadataBase: new URL('https://fanoselectric.ir'),
   title: {
-    default: 'فانوس الکتریک | فروشگاه آنلاین تجهیزات و لوازم برقی',
-    template: '%s | فانوس الکتریک',
+    default: 'الکتریکی فانوس | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    template: '%s | الکتریکی فانوس',
   },
-  description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه فانوس الکتریک.',
-  applicationName: 'فانوس الکتریک',
+  description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه الکتریکی فانوس.',
+  applicationName: 'الکتریکی فانوس',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'fa_IR',
-    siteName: 'فانوس الکتریک',
-    title: 'فانوس الکتریک | فروشگاه آنلاین تجهیزات و لوازم برقی',
-    description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه فانوس الکتریک.',
+    siteName: 'الکتریکی فانوس',
+    title: 'الکتریکی فانوس | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه الکتریکی فانوس.',
     url: 'https://fanoselectric.ir',
   },
   robots: { index: true, follow: true },

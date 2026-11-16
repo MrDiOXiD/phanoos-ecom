@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import AddressCard from './AddressCard';
@@ -12,7 +12,6 @@ export default function AddressesClientShell() {
     { open: false } | { open: true; address: UserAddress | null }
   >({ open: false });
 
-console.log(addresses);
 
 
   const handleDelete = (id: number) => remove(id);
@@ -65,3 +64,5 @@ console.log(addresses);
     </div>
   );
 }
+
+
