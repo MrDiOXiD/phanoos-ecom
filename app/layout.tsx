@@ -15,13 +15,28 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  title: 'الکتریکی آنلاین',
-  description: 'فروشگاه آنلاین لوازم برقی',
+  metadataBase: new URL('https://fanoselectric.ir'),
+  title: {
+    default: 'فانوس الکتریک | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    template: '%s | فانوس الکتریک',
+  },
+  description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه فانوس الکتریک.',
+  applicationName: 'فانوس الکتریک',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'fa_IR',
+    siteName: 'فانوس الکتریک',
+    title: 'فانوس الکتریک | فروشگاه آنلاین تجهیزات و لوازم برقی',
+    description: 'خرید آنلاین لوازم و تجهیزات برقی از فروشگاه فانوس الکتریک.',
+    url: 'https://fanoselectric.ir',
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fa" dir="rtl" className={vazirmatn.variable}>
+    <html lang="fa-IR" dir="rtl" className={vazirmatn.variable}>
       <body
         className="bg-gray-100 min-h-screen"
         style={{ fontFamily: 'var(--font-vazirmatn), sans-serif', margin: 0 }}
